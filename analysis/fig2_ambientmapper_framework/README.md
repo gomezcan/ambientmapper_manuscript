@@ -19,7 +19,7 @@ preceded by the SM2v2 genotyping run (`workflows/03_genotyping/sm2v2/`).
 
 ## Notes
 
-- `FIG2_SAMPLE=SM2 Rscript analysis/fig2_ambientmapper_framework/fig2.R` rebuilds the panels from the run in `SM2/` into `figures/main/fig2_SM2/`. That run used an older call vocabulary; the schema shim in the script maps both vocabularies and panel E's call levels are data-driven.
+- `FIG2_SAMPLE=SM2 Rscript analysis/fig2_ambientmapper_framework/fig2.R` rebuilds the panels from the run in `SM2/` into `figures/main/fig2_SM2/`. The tables of that arm use a different call vocabulary; the schema shim in the script maps both vocabularies and panel E's call levels are data-driven.
 - The regime thresholds in the CONFIG block (`EMPTY_BIC_MARGIN = 10`, `BIC_MARGIN_SD = 6`, `DOUBLET_MINOR_MIN = 0.20`, `LOW_EVIDENCE_READS_MAX = 10`) are the figure's own display and classification thresholds for the dashed gate lines and the regime colouring. They are not read from the run configuration.
 - The JSD tau drawn in panel B is derived from the data (90th percentile of `jsd_to_eta` among barcodes with `delta_empty >= EMPTY_BIC_MARGIN`); the panel subtitle says so.
 - Panels B to D use barcodes with more than 50 reads (D: more than 5); panel E joins calls of barcodes with more than 50 reads to the pre-clean winner counts.

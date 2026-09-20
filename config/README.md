@@ -9,7 +9,7 @@ holds the BWA indexes (`Zea/NAN_Indexes/Index_Zm_<genome>_bwa`, `Arabidopsis/Ind
 | File | Dataset | What it records |
 |---|---|---|
 | `ambientmapper_scifiATAC_SM2v2.yaml` | SM2v2 (maize B73 + Arabidopsis) | The shipped SM2v2 run: assign and genotyping flags read from the run log and from the shared wrapper (`workflows/03_genotyping/_genotyping_configs.sh`). Behind Fig 1F to I, 2, 3, 5, S4, Tables S1 and S3. |
-| `ambientmapper_scifiATAC.yaml` | SM2 v1 | The earlier run read by Fig 1B to E only. |
+| `ambientmapper_scifiATAC.yaml` | SM2 (combined-reference arm) | Read by Fig 1B to E only. |
 | `ambientmapper_marand2021.yaml` | Root1_rep1 (26 NAM genomes) | Sample config of the zero-contamination control (Fig 4D to G, S6). |
 | `SM2v2.ambientmapper.json`, `Root1_rep1.ambientmapper.json`, `B73Mo17_rep1.ambientmapper.json`, `B73Mo17_rep2.ambientmapper.json`, `multiGenotypes_rep1.ambientmapper.json` | as named | The `--config` JSON files passed to `ambientmapper` (sample, workdir, min_barcode_freq, chunk_size_cells, genome to BAM), absolute paths replaced by `${PROJECT_ROOT}`. |
 | `genome_map_scifiATAC.tsv` | subsampled sandbox | Format example of the scifi-demux step 2 genome map; not a paper run. The paper run plans are `workflows/02_mapping/zhang2024/run_plan.*.tsv`. |
@@ -32,7 +32,7 @@ and in the `workflows/04_decontamination/` scripts.
 
 ## Barcode lists (`../data/metadata/barcode_lists/`)
 
-`sample, genome, bam, workdir` tables of the first AmbientMapper runs (`SM2_AtB73.list.tsv` = SM2 v1,
+`sample, genome, bam, workdir` tables of the first AmbientMapper runs (`SM2_AtB73.list.tsv` = SM2,
 `Root1_Rep1.list.tsv` = Root1). The absolute HPC prefixes of the originals were replaced by
 `${PROJECT_ROOT}/...`, and `4_MappingCleaning/` by `3_Mapping/`: the BAM-cleaning directory was merged
 into `3_Mapping/` during the project, so `4_MappingCleaning/ambientmapper_input/` is now

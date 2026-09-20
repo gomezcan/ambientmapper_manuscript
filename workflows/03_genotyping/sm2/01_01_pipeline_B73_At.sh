@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 01_01_pipeline_B73_At.sh — SM2 v1 AmbientMapper run (single `ambientmapper run`:
+# 01_01_pipeline_B73_At.sh — SM2 (combined-reference arm) AmbientMapper run (single `ambientmapper run`:
 # extract -> filter -> chunks -> assign -> genotyping) on the maize B73 + Arabidopsis
 # library, each genome mapped independently.
 #

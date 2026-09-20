@@ -19,8 +19,8 @@ scripts read. `processed/` is the layout the `analysis/` scripts expect; its fil
 ```
 processed/
   scifiATAC_B73_Arabidopsis/
-    SM2/        AmbientMapper run of 2026-01 (Fig. 1B to E)
-    SM2v2/      AmbientMapper run of 2026-05, with_design (WD) and without_design (ND) (Fig. 2, 3, 5, Tables S1, S3)
+    SM2/        AmbientMapper run on the combined-reference mapping, reads mapped to the concatenated maize + Arabidopsis reference, then split by species (Fig. 1B to E)
+    SM2v2/      AmbientMapper run on the independent mapping, reads mapped to each genome separately, with_design (WD) and without_design (ND) (Fig. 2, 3, 5, Tables S1, S3)
     socrates/   Socrates objects and tables: SM2/, SM2v2_clean/, SM2v2_indep/, SM2v2_plate/, compare/, _data/
     bed/        concatenated-reference Tn5 BEDs (Fig. S1)
   marand2021_B73_root/Root1_rep1/   genotyping runs, evaluation tables, sub1k_B subsample

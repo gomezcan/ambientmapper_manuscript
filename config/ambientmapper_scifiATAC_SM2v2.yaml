@@ -1,6 +1,6 @@
 # AmbientMapper configuration of the SHIPPED SM2v2 run on scifiATAC_B73_Arabidopsis (maize B73 + Arabidopsis thaliana).
 # This run is behind Fig 1F to I, Fig 2, Fig 3, Fig 5, Fig S4 and Tables S1 and S3
-# (Fig 1B to E read the earlier SM2 v1 run, see ambientmapper_scifiATAC.yaml).
+# (Fig 1B to E read the SM2 combined-reference arm, see ambientmapper_scifiATAC.yaml).
 #
 # Values were transcribed from the log of the genotyping step (the "effective flags", "gates" and
 # "grid" lines it prints) and from the shared wrapper workflows/03_genotyping/_genotyping_configs.sh

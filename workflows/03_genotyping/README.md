@@ -3,9 +3,8 @@
 Scripts that produced the per-barcode genotype calls (`*_cells_calls.tsv.gz`) behind the
 manuscript, one subfolder per dataset, plus the shared configuration registry and the
 factorial evaluator. Ported from the run-of-record scripts; parameter values are unchanged.
-Only scripts listed in the "Used" column of `doc/repo_release/paper_inventory.md`
-section 4 (stage `03_genotyping`) ship here; exploratory configurations and archived
-runs do not.
+Only the scripts behind a result reported in the paper ship here; exploratory configurations
+and archived runs do not.
 
 ## Conventions
 
@@ -38,11 +37,11 @@ runs do not.
 |---|---|
 | `_genotyping_configs.sh` | Sourced registry of the 55 named genotyping configurations (C0, C1a to C1g, C2a to C2e, C3a to C3e, C4a/b/c/d, Cxmap_mq50, S01 to S13), the friend-rescue routing and the `ambientmapper genotyping` invocation. Winner-only mode is OFF and beta = 10 in every run that goes through it (comment above the invocation is the only record). |
 | `eval_phase_factorial.R` | `Rscript eval_phase_factorial.R <phase2|phase3|phase4> [<date>]`, run from `${PROJECT_ROOT}/5_AmbientDetection/`. phase2 -> `synthetic/eval/phase2_<date>/phase2_summary_metrics.tsv` (Fig. S5); phase3 -> `Root1_rep1/eval/phase3_<date>/phase3_summary_metrics.tsv` (Fig. S6); phase4 -> `Root1_rep1/eval/phase4_<date>/phase4_summary_metrics.tsv` (Fig. 4G). Local R, no SLURM. |
-| `configs/` | `Root1_rep1_sub1k_A.ambientmapper.json`, `Root1_rep1_sub1k_B.ambientmapper.json` (panel configs read by `02_09` to `02_11`). The five dataset JSONs are in `config/`; the SM2 v1 sample list `SM2_AtB73.list.tsv` is in `data/metadata/barcode_lists/`. |
+| `configs/` | `Root1_rep1_sub1k_A.ambientmapper.json`, `Root1_rep1_sub1k_B.ambientmapper.json` (panel configs read by `02_09` to `02_11`). The five dataset JSONs are in `config/`; the SM2 sample list `SM2_AtB73.list.tsv` is in `data/metadata/barcode_lists/`. |
 
 ## Execution order per dataset
 
-### `sm2/` — SM2 v1 (Fig. 1B to E; paper_inventory row "SM2 v1")
+### `sm2/` — SM2, the combined-reference arm (Fig. 1B to E)
 
 | # | Script | Resources | Produces |
 |---|---|---|---|
@@ -53,7 +52,7 @@ the BAMs under `4_MappingCleaning/ambientmapper_input/`; that directory was late
 into `3_Mapping/ambientmapper_input/` with the same file names, and the shipped list uses the
 `3_Mapping/` location.
 
-### `sm2v2/` — SM2v2 (Fig. 2, 3, 5, S7, S8, Tables S1, S3; row "SM2v2")
+### `sm2v2/` — SM2v2, the independent-mapping arm (Fig. 2, 3, 5, S7, S8, Tables S1, S3)
 
 Input BAMs: `3_Mapping/ambientmapper_input/SM2_{B73v5,TAIR10}_scifiATAC.mq10.BC.rmdup.mm.bam`
 (produced by stage 02, `01_00_merge_SM2v2_inputs.sh`).
@@ -72,7 +71,7 @@ Input BAMs: `3_Mapping/ambientmapper_input/SM2_{B73v5,TAIR10}_scifiATAC.mq10.BC.
 Root1_rep1, B73Mo17_rep1, B73Mo17_rep2 and multiGenotypes_rep1; it runs after their
 `filter` step and before their `assign` step.
 
-### `root1/` — Root1_rep1, 26 NAM genomes (Fig. 4D to G; row "Root1 full")
+### `root1/` — Root1_rep1, 26 NAM genomes (Fig. 4D to G)
 
 | # | Script | Resources | Produces |
 |---|---|---|---|
@@ -83,9 +82,9 @@ Root1_rep1, B73Mo17_rep1, B73Mo17_rep2 and multiGenotypes_rep1; it runs after th
 | 5 | `../eval_phase_factorial.R phase4 <date>` | local R | `Root1_rep1/eval/phase4_<date>/phase4_summary_metrics.tsv` (Fig. 4G) |
 
 The phi table of Fig. 4D (`genotyping_runs/_archive/eval_xmap_v2_phi_B73.tsv`) comes from an
-archived script on an archived run and is not part of this stage (gap_map.md D6).
+archived script on an archived run and is not part of this stage.
 
-### `root1_sub1k/` — depth-balanced 1k-barcode panels (Fig. S6; row "Root1 sub1k")
+### `root1_sub1k/` — depth-balanced 1k-barcode panels (Fig. S6)
 
 | # | Script | Resources | Produces |
 |---|---|---|---|
@@ -96,7 +95,7 @@ archived script on an archived run and is not part of this stage (gap_map.md D6)
 | 5 | `02_11_genotyping_stacked_phase3_sub1k.sh` | 30 min, 8 cpu, 16 G, array 0-37 | Phase 3: 19 configs x 2 panels under `genotyping_runs/factorial_phase3_<date>/` |
 | 6 | `../eval_phase_factorial.R phase3 <date>` | local R | `Root1_rep1/eval/phase3_<date>/phase3_summary_metrics.tsv` (Fig. S6, `TRACK = sub1k_B`) |
 
-### `synthetic/` — synthetic benchmark, Track B and Track B-disc (Fig. 4A to C, S5; row "Synthetic")
+### `synthetic/` — synthetic benchmark, Track B and Track B-disc (Fig. 4A to C, S5)
 
 | # | Script | Resources | Produces |
 |---|---|---|---|
@@ -114,7 +113,7 @@ archived script on an archived run and is not part of this stage (gap_map.md D6)
 | 12 | `03_21_genotyping_synthetic_factorial.sh` | 2 h, 8 cpu, 16 G, array 0-299%60 | Phase 2: 10 configs x 15 datasets x 2 tracks under `genotyping_runs/factorial_phase2_<date>/` (Fig. 4B reads C0) |
 | 13 | `../eval_phase_factorial.R phase2 <date>` | local R | `synthetic/eval/phase2_<date>/phase2_summary_metrics.tsv` (Fig. S5) |
 
-### `zhang2024/` — B73Mo17_rep1, B73Mo17_rep2, multiGenotypes_rep1 (Fig. 4H to K; row "B73Mo17 rep1, rep2, multiGenotypes")
+### `zhang2024/` — B73Mo17_rep1, B73Mo17_rep2, multiGenotypes_rep1 (Fig. 4H to K)
 
 Input BAMs: `3_Mapping/ambientmapper_input/<sample>_<genome>_scifiATAC.mq10.BC.rmdup.mm.bam`
 (stage 02, scifi-demux step 2 merges).

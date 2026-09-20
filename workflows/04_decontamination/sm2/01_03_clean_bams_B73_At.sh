@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 01_03_clean_bams_B73_At.sh — SM2 v1 clean-bams: drop the WD reads_to_drop list from
+# 01_03_clean_bams_B73_At.sh — SM2 (combined-reference arm) clean-bams: drop the WD reads_to_drop list from
 # the combined-genome (ZmATcombined) SM2 BAMs and derive Tn5 insertion BEDs.
 # Input : <sample>/decontam_with_design_alpha05_v2/<sample>_reads_to_drop.tsv.gz (from 01_02),
 #         4_MappingCleaning/<sample>_{B73,At}/<sample>_*_ZmATcombined_scifiATAC.mq10.BC.rmdup.mm.bam

@@ -1,5 +1,5 @@
-# AmbientMapper configuration of the SM2 v1 run on scifiATAC_B73_Arabidopsis (maize B73 + Arabidopsis thaliana).
-# This earlier run is read by Fig 1B to E only (data/processed/scifiATAC_B73_Arabidopsis/SM2/).
+# AmbientMapper configuration of the SM2 run (combined-reference arm) on scifiATAC_B73_Arabidopsis (maize B73 + Arabidopsis thaliana).
+# This arm is read by Fig 1B to E only (data/processed/scifiATAC_B73_Arabidopsis/SM2/).
 # Every other SM2 panel and table reads the later SM2v2 run documented in ambientmapper_scifiATAC_SM2v2.yaml.
 #
 # Values are the flags of the single `ambientmapper run` call of the v1 pipeline script

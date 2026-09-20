@@ -2,8 +2,7 @@
 
 Scripts that turned the stage 03 genotype calls into per-read drop lists, barcode-level
 contamination tables and cleaned BAMs, one subfolder per dataset. Ported from the
-run-of-record scripts listed in the "Used" column of `doc/repo_release/paper_inventory.md`
-section 4 (stage `04_decontamination`); parameter values are unchanged.
+run-of-record scripts; parameter values are unchanged.
 
 ## Conventions
 
@@ -45,7 +44,7 @@ section 4 (stage `04_decontamination`); parameter values are unchanged.
 
 ## Execution order per dataset
 
-### `sm2/` — SM2 v1 (Fig. 1B to E; row "SM2 v1")
+### `sm2/` — SM2, the combined-reference arm (Fig. 1B to E)
 
 | # | Script | Resources | Produces |
 |---|---|---|---|
@@ -56,7 +55,7 @@ section 4 (stage `04_decontamination`); parameter values are unchanged.
 was later consolidated into `3_Mapping/` (`3_Mapping/SM2_{At,B73}/` for the BAMs,
 `3_Mapping/_archive/1_6_scifi_makeTn5bed.py` for the Tn5 BED script).
 
-### `sm2v2/` — SM2v2 (Fig. 2, 3, 5, S7, S8, Tables S1, S3; row "SM2v2")
+### `sm2v2/` — SM2v2, the independent-mapping arm (Fig. 2, 3, 5, S7, S8, Tables S1, S3)
 
 Input: `SM2v2/final/SM2v2_cells_calls.tsv.gz` and `SM2v2/cell_map_ref_chunks/*_filtered.tsv.gz`
 from `workflows/03_genotyping/sm2v2/01_09`.
@@ -78,13 +77,13 @@ The pre-clean tn5 BEDs and the WD/ND BED regeneration (`01_12`, `01_11c`) ship w
 
 The matching tn5 BED step (`0_06_make_tn5bed_SM2v2_combined.sh`) ships with stage 02.
 
-### `synthetic/` — both synthetic tracks (Fig. 4C; row "Synthetic")
+### `synthetic/` — both synthetic tracks (Fig. 4C)
 
 | # | Script | Resources | Produces |
 |---|---|---|---|
 | 1 | `03_22_decontam_synthetic_nodesign.sh` | 45 min, 8 cpu, 16 G, array 0-29 | `<track>/<dataset>/decontam_without_design_alpha05_C0/` for 15 datasets x 2 tracks, on the Phase 2 `C0` calls (`factorial_phase2_2026-04-09`); Fig. 4C reads the pre/post `barcode_genome_counts` |
 
-### `zhang2024/` — B73Mo17_rep1, B73Mo17_rep2, multiGenotypes_rep1 (Fig. 4L to N, Table S1; row "B73Mo17 rep1, rep2, multiGenotypes")
+### `zhang2024/` — B73Mo17_rep1, B73Mo17_rep2, multiGenotypes_rep1 (Fig. 4L to N, Table S1)
 
 Input: `<sample>/genotyping_runs/4cfg_2026-05-01/C0/<sample>_cells_calls.tsv.gz` from
 `workflows/03_genotyping/zhang2024/04_05a` and `04_05b`.

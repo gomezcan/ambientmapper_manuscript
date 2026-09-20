@@ -4,8 +4,7 @@ The SNP-based reference against which AmbientMapper's calls are compared on the 
 2024 libraries (B73Mo17_rep1, B73Mo17_rep2, multiGenotypes_rep1): supervised Souporcell
 genotyping (Fig. 4H to K), WASP correction of reference-mapping bias, and the
 barcode-resolved allele-purity model on raw versus cleaned BAMs (Fig. 4L to N, Table S4).
-Ported from `5_Genotyping/0_scripts/` as listed in the "Used" column of
-`doc/repo_release/paper_inventory.md` section 4 (row "SNP-based comparison"), plus the three
+Ported from `5_Genotyping/0_scripts/` of the analysis project, plus the three
 `06_44_*` scripts whose preparation outputs the WASP chain depends on.
 
 ## Conventions
@@ -63,9 +62,8 @@ The "clean" arm of steps 4 to 7 reads the AmbientMapper-cleaned BAMs
 
 ## Note on the `06_44_*` scripts
 
-paper_inventory.md classes `06_44_run.sh`, `06_44_extract_allele_counts.py` and
-`06_44_concordance.R` as exploratory because the pooled allele-concordance panel they compute
-was dropped from the paper. They ship here anyway because the WASP chain depends on what
+`06_44_run.sh`, `06_44_extract_allele_counts.py` and `06_44_concordance.R` are exploratory: the
+pooled allele-concordance panel they compute is not in the paper. They ship here anyway because the WASP chain depends on what
 `06_44_run.sh prep()` builds: the marker-site panel (`multi_7geno_sites.vcf.gz`, the 25NAM VCF
 restricted to the seven pooled genotypes, biallelic SNPs with minor allele frequency >= 0.01;
 `genotype_panel.tsv`) and the barcode-to-genome table (`bc_to_genome1.tsv`, AmbientMapper

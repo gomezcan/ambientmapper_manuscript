@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# 01_02_decontam_B73_At.sh — SM2 v1 decontamination, with-design (WD) and
+# 01_02_decontam_B73_At.sh — SM2 (combined-reference arm) decontamination, with-design (WD) and
 # without-design (ND) passes on the 01_01 genotyping output.
 # Input : <sample>/final/<sample>_cells_calls.tsv.gz, <sample>/cell_map_ref_chunks/*_filtered.tsv.gz,
 #         configs/PlateDesign_<sample>_ATAC.txt (WD pass only)
 # Output: <sample>/decontam_with_design_alpha05_v2/ (the SM2 tables read by Fig. 1B to E)
-#         <sample>/decontam_without_design_alpha05_v2/ (no manuscript consumer for SM2 v1)
+#         <sample>/decontam_without_design_alpha05_v2/ (no manuscript consumer for SM2)
 # Run   : cd ${PROJECT_ROOT}/5_AmbientDetection && sbatch <repo>/workflows/04_decontamination/sm2/01_02_decontam_B73_At.sh SM2
 #SBATCH --time=2:00:00
 #SBATCH --nodes=1
