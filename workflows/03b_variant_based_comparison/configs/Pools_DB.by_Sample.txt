@@ -1,0 +1,11 @@
+B73	B73Mo17_rep1
+Mo17	B73Mo17_rep1
+B73	B73Mo17_rep2
+Mo17	B73Mo17_rep2
+B73	multiGenotypes_rep1
+B97	multiGenotypes_rep1
+Ky21	multiGenotypes_rep1
+M162W	multiGenotypes_rep1
+Mo18W	multiGenotypes_rep1
+Oh7B	multiGenotypes_rep1
+Tzi8	multiGenotypes_rep1

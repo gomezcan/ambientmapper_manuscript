@@ -1,0 +1,15 @@
+{
+  "sample": "multiGenotypes_rep1",
+  "workdir": "${PROJECT_ROOT}/5_AmbientDetection",
+  "min_barcode_freq": 5,
+  "chunk_size_cells": 100,
+  "genomes": {
+    "B73": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/multiGenotypes_rep1_B73v5_scifiATAC.mq10.BC.rmdup.mm.bam",
+    "B97": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/multiGenotypes_rep1_B97_scifiATAC.mq10.BC.rmdup.mm.bam",
+    "Ky21": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/multiGenotypes_rep1_Ky21_scifiATAC.mq10.BC.rmdup.mm.bam",
+    "M162W": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/multiGenotypes_rep1_M162W_scifiATAC.mq10.BC.rmdup.mm.bam",
+    "Mo18W": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/multiGenotypes_rep1_Mo18W_scifiATAC.mq10.BC.rmdup.mm.bam",
+    "Oh7B": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/multiGenotypes_rep1_Oh7B_scifiATAC.mq10.BC.rmdup.mm.bam",
+    "Tzi8": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/multiGenotypes_rep1_Tzi8_scifiATAC.mq10.BC.rmdup.mm.bam"
+  }
+}

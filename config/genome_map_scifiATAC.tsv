@@ -1,0 +1,9 @@
+# Genome mapping file for scifi-demux step2
+# Columns: sample_base, target_genome, ref_path, sample_path
+# Format example only: the 1M-read subsampled B73Mo17_rep1 sandbox mapped to B73v5 and TAIR10, not a paper run.
+# The paper run plans (per well x genome) are in workflows/02_mapping/zhang2024/run_plan.*.tsv.
+#
+# ref_path and sample_path carry placeholders: ${GENOMES_DIR} holds the BWA indexes, ${PROJECT_ROOT} the analysis tree.
+# sample_base	target_genome	ref_path	sample_path
+01_subB73Mo17_rep1	B73	${GENOMES_DIR}/Zea/NAN_Indexes/Index_Zm_B73v5_bwa	${PROJECT_ROOT}/8_scifi_demux
+01_subB73Mo17_rep1	At	${GENOMES_DIR}/Arabidopsis/Index_AraTAIR10_bwa	${PROJECT_ROOT}/8_scifi_demux

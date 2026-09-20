@@ -1,0 +1,3 @@
+sample	genome	bam	workdir
+SM2	B73	${PROJECT_ROOT}/3_Mapping/ambientmapper_input/SM2_B73v5_scifiATAC.mq10.BC.rmdup.mm.bam	${PROJECT_ROOT}/5_AmbientDetection
+SM2	At	${PROJECT_ROOT}/3_Mapping/ambientmapper_input/SM2_TAIR10_scifiATAC.mq10.BC.rmdup.mm.bam	${PROJECT_ROOT}/5_AmbientDetection

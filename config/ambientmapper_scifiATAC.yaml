@@ -1,0 +1,54 @@
+# AmbientMapper configuration of the SM2 v1 run on scifiATAC_B73_Arabidopsis (maize B73 + Arabidopsis thaliana).
+# This earlier run is read by Fig 1B to E only (data/processed/scifiATAC_B73_Arabidopsis/SM2/).
+# Every other SM2 panel and table reads the later SM2v2 run documented in ambientmapper_scifiATAC_SM2v2.yaml.
+#
+# Values are the flags of the single `ambientmapper run` call of the v1 pipeline script
+# (workflows/03_genotyping/sm2/); the sample table it consumed is data/metadata/barcode_lists/SM2_AtB73.list.tsv.
+# Note the differences from the shipped SM2v2 run: topk_genomes 3 (v2: 2), single_mass_min 0.7 (v2: 0.6),
+# ratio_top1_top2_min 2.0 (v2: 1.5), empty bic_margin 10 (v2: 6), beta 1 (v2: 10).
+
+# --- Sample config ---
+sample: SM2
+workdir: ${PROJECT_ROOT}/5_AmbientDetection
+genomes:
+  B73: ${PROJECT_ROOT}/3_Mapping/ambientmapper_input/SM2_B73v5_scifiATAC.mq10.BC.rmdup.mm.bam
+  At:  ${PROJECT_ROOT}/3_Mapping/ambientmapper_input/SM2_TAIR10_scifiATAC.mq10.BC.rmdup.mm.bam
+
+# --- Runtime ---
+threads: 36
+min_barcode_freq: 3
+chunk_size_cells: 50
+
+# --- Read assignment (ambientmapper assign) ---
+assign:
+  alpha: 0.05
+  k: 10
+  mapq_min: 10
+  xa_max: 2
+  chunksize: 500000
+  batch_size: 6
+
+# --- Genotyping (ambientmapper genotyping) ---
+genotyping:
+  winner_only: false        # --no-genotyping-winner-only
+  pass1_workers: 35
+  beta: 1                   # Dirichlet pseudocount (smoothing)
+  min_reads: 5              # minimum reads per barcode for genotyping
+  chunk_rows: 1000000
+  bic_margin: 6             # BIC margin: single vs doublet
+  topk_genomes: 3           # top-k genomes considered per barcode
+  doublet_minor_min: 0.30   # minimum minor fraction for a doublet call
+  single_mass_min: 0.70     # minimum mass in the top genome for a singlet call
+  ratio_top1_top2_min: 2.0  # minimum ratio of top1/top2 genome reads
+
+# --- Empty gate ---
+empty:
+  bic_margin: 10            # BIC margin: empty vs non-empty
+  top1_max: 0.60            # max top-1 fraction for empty classification
+  ratio12_max: 1.5          # max top1/top2 ratio for empty classification
+
+# --- Eta (ambient profile) estimation ---
+eta:
+  iters: 2                  # number of eta re-estimation iterations
+  seed_bic_min: 10          # minimum BIC for seed barcodes
+  tau_quantile: 0.95        # JSD quantile for the tau threshold

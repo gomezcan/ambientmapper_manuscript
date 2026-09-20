@@ -1,0 +1,3 @@
+sample	genome	bam	workdir
+AtB73_B73	At	${PROJECT_ROOT}/3_Mapping/Pools_bams/At.B73_B73__At.bam	${PROJECT_ROOT}/5_AmbientDetection
+AtB73_B73	B73	${PROJECT_ROOT}/3_Mapping/Pools_bams/At.B73_B73__B73v5.bam	${PROJECT_ROOT}/5_AmbientDetection

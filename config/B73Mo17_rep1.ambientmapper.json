@@ -1,0 +1,10 @@
+{
+  "sample": "B73Mo17_rep1",
+  "workdir": "${PROJECT_ROOT}/5_AmbientDetection",
+  "min_barcode_freq": 5,
+  "chunk_size_cells": 100,
+  "genomes": {
+    "B73": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/B73Mo17_rep1_B73v5_scifiATAC.mq10.BC.rmdup.mm.bam",
+    "Mo17": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/B73Mo17_rep1_Mo17_scifiATAC.mq10.BC.rmdup.mm.bam"
+  }
+}

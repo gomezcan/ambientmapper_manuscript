@@ -1,0 +1,75 @@
+# AmbientMapper configuration of the SHIPPED SM2v2 run on scifiATAC_B73_Arabidopsis (maize B73 + Arabidopsis thaliana).
+# This run is behind Fig 1F to I, Fig 2, Fig 3, Fig 5, Fig S4 and Tables S1 and S3
+# (Fig 1B to E read the earlier SM2 v1 run, see ambientmapper_scifiATAC.yaml).
+#
+# Values were transcribed from the log of the genotyping step (the "effective flags", "gates" and
+# "grid" lines it prints) and from the shared wrapper workflows/03_genotyping/_genotyping_configs.sh
+# (init_c0_defaults + run_ambientmapper_genotyping), which also passes two options the log never
+# echoes: --no-winner-only and --beta 10. The library defaults (winner-only on, beta 1, topk_genomes 3,
+# doublet policy top12) were overridden in this run. Genotyping configuration name: C0, the factorial
+# baseline (no overrides on top of init_c0_defaults).
+
+# --- Sample config (config/SM2v2.ambientmapper.json) ---
+sample: SM2v2
+workdir: ${PROJECT_ROOT}/5_AmbientDetection
+min_barcode_freq: 5
+chunk_size_cells: 50
+genomes:
+  B73: ${PROJECT_ROOT}/3_Mapping/ambientmapper_input/SM2_B73v5_scifiATAC.mq10.BC.rmdup.mm.bam
+  At:  ${PROJECT_ROOT}/3_Mapping/ambientmapper_input/SM2_TAIR10_scifiATAC.mq10.BC.rmdup.mm.bam
+
+# --- Read assignment (ambientmapper assign, 16-task array over the barcode chunks) ---
+assign:
+  alpha: 0.05
+  k: 10
+  mapq_min: 10
+  xa_max: 2
+  chunksize: 500000
+  batch_size: 6
+  threads: 16
+
+# --- Genotyping (ambientmapper genotyping) ---
+genotyping:
+  threads: 8
+  pass1_workers: 8
+  winner_only: false          # --no-winner-only (library default: on); never echoed in the log
+  beta: 10                    # --beta 10 (library default: 1); never echoed in the log
+  min_reads: 5
+  chunk_rows: 100000
+  min_mapq_genotyping: 20
+  max_xa_genotyping: 0
+  topk_genomes: 2             # library default 3
+  w_confident: 1.0
+  w_ambiguous: 0.1
+  w_as: 1.0
+  w_mapq: 1.0
+  w_nm: 1.0
+  single_mass_min: 0.6
+  ratio_top1_top2_min: 1.5
+  doublet_minor_min: 0.20
+  max_alpha: 0.5
+  bic_margin: 6
+  near_tie_margin: 2.0        # printed by the run (gates line), not set by the wrapper
+  alpha_grid: 0.02            # printed by the run (grid line)
+  rho_grid: 0.05              # printed by the run (grid line)
+  topk_reclass: true          # --topk-reclass: reads re-classified with the top-K genomes per barcode
+  winner_discount: true       # --winner-discount --winner-discount-mode winner_ratio
+  winner_discount_mode: winner_ratio
+  xmap: false                 # --no-xmap: the cross-mapping profile phi was NOT applied in this run
+
+# --- Empty gate (values passed by the wrapper; the gate called no barcode empty in this run) ---
+empty:
+  bic_margin: 6
+  top1_max: 0.6
+  ratio12_max: 2
+  seed_bic_min: 10            # passed, but not used by the eta learning of this version (log NOTE)
+  tau_quantile: 0.95
+
+# --- Eta (ambient profile) ---
+eta:
+  iters: 2                    # requested; the log reports seed_sizes=[31484, 0], i.e. the refinement
+                              # seed was empty and eta stayed at its initial estimate
+
+# Decontamination (ambientmapper decontam, alpha 0.05, one pass with the plate design = WD and one
+# without = ND) is documented by the *_decontam_params.json written next to each run's outputs and by
+# the scripts in workflows/04_decontamination/sm2v2/.

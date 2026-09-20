@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the manuscript below."
+title: "Code for: Empirical Estimation of Ambient Contamination in Combinatorial Single-Cell Methods Using Multi-Reference Mapping"
+type: software
+authors:
+  - family-names: "Gomez-Cano"
+    given-names: "Fabio"
+    orcid: "https://orcid.org/0000-0002-2624-0112"
+    affiliation: "Department of Molecular, Cellular, and Developmental Biology, University of Michigan"
+  - family-names: "Jiang"
+    given-names: "Luguang"
+    orcid: "https://orcid.org/0000-0002-7155-5471"
+    affiliation: "Department of Molecular, Cellular, and Developmental Biology, University of Michigan"
+  - family-names: "Welch"
+    given-names: "Joshua D."
+    orcid: "https://orcid.org/0000-0002-5869-2391"
+    affiliation: "Department of Computer Science and Engineering; Department of Computational Medicine and Bioinformatics, University of Michigan"
+  - family-names: "Marand"
+    given-names: "Alexandre P."
+    orcid: "https://orcid.org/0000-0001-9100-8320"
+    affiliation: "Department of Molecular, Cellular, and Developmental Biology, University of Michigan"
+repository-code: "https://github.com/gomezcan/ambientmapper_manuscript"
+license: MIT
+keywords:
+  - single-cell
+  - ATAC-seq
+  - scifi-ATAC
+  - ambient contamination
+  - barcode misassignment
+  - decontamination
+  - multi-reference mapping
+preferred-citation:
+  type: article
+  title: "Empirical Estimation of Ambient Contamination in Combinatorial Single-Cell Methods Using Multi-Reference Mapping"
+  authors:
+    - family-names: "Gomez-Cano"
+      given-names: "Fabio"
+      orcid: "https://orcid.org/0000-0002-2624-0112"
+    - family-names: "Jiang"
+      given-names: "Luguang"
+      orcid: "https://orcid.org/0000-0002-7155-5471"
+    - family-names: "Welch"
+      given-names: "Joshua D."
+      orcid: "https://orcid.org/0000-0002-5869-2391"
+    - family-names: "Marand"
+      given-names: "Alexandre P."
+      orcid: "https://orcid.org/0000-0001-9100-8320"
+  journal: "bioRxiv"
+  year: 2026
+  doi: "10.64898/2026.09.11.750809"
+  url: "https://doi.org/10.64898/2026.09.11.750809"

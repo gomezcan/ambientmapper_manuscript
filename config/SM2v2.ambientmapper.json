@@ -1,0 +1,10 @@
+{
+  "sample": "SM2v2",
+  "workdir": "${PROJECT_ROOT}/5_AmbientDetection",
+  "min_barcode_freq": 5,
+  "chunk_size_cells": 50,
+  "genomes": {
+    "B73": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/SM2_B73v5_scifiATAC.mq10.BC.rmdup.mm.bam",
+    "At": "${PROJECT_ROOT}/3_Mapping/ambientmapper_input/SM2_TAIR10_scifiATAC.mq10.BC.rmdup.mm.bam"
+  }
+}
