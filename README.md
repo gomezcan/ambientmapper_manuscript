@@ -11,7 +11,7 @@ This repository holds the code behind every figure, supplementary figure and sup
 | AmbientMapper (genotyping and decontamination tool) | https://github.com/gomezcan/ambientmapper |
 | scifi-demux (scifi-ATAC preprocessing tool) | https://github.com/gomezcan/scifi-demux |
 | Preprint (bioRxiv) | https://doi.org/10.64898/2026.09.11.750809 |
-| GEO accession, maize and Arabidopsis scifi-ATAC library | to be added |
+| GEO accession, maize and Arabidopsis scifi-ATAC library | [GSE348516](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348516) |
 | Zenodo record of the processed data | to be added |
 
 ## What is here
@@ -51,7 +51,7 @@ the per-panel PDFs in Illustrator, so panel letters in output file names follow 
 
 | Library | Species or genotypes | Source | Used in |
 |---|---|---|---|
-| scifi-ATAC, maize B73 and *Arabidopsis thaliana* in separate wells of one 96-well plate | two species | this study, GEO accession to be added | Fig. 1 to 3, Fig. 5, Fig. S1 to S3, S7, S8, Tables S1, S3 |
+| scifi-ATAC, maize B73 and *Arabidopsis thaliana* in separate wells of one 96-well plate | two species | this study, GEO GSE348516 | Fig. 1 to 3, Fig. 5, Fig. S1 to S3, S7, S8, Tables S1, S3 |
 | scifi-ATAC B73 and Mo17, replicates 1 and 2 | two genotypes | Zhang et al. 2024, SRA SRR25320545 to SRR25320547 and SRR25320539 to SRR25320541 (BioProject PRJNA996051) | Fig. 4H to N, Table S4 |
 | scifi-ATAC seven-genotype pool | seven genotypes | Zhang et al. 2024, SRA SRR25320542 to SRR25320544 | Fig. 4I, K, L to N, Table S4 |
 | 10x scATAC-seq maize B73 root | one genotype, 26 reference genomes | Marand et al. 2021, SRA run SRR12331466 (GSM4696884, BioProject PRJNA648930) | Fig. 4D to G, Fig. S6 |
@@ -91,7 +91,7 @@ raw FASTQ
 
 ## Data availability
 
-Raw reads of the maize and Arabidopsis library: GEO, accession to be added. Public libraries: SRA
+Raw reads of the maize and Arabidopsis library: GEO GSE348516. Public libraries: SRA
 accessions in the table above. Processed tables read by `analysis/`: see `data/README.md` for the
 expected files and their origin.
 

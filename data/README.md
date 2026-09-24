@@ -8,7 +8,7 @@ scripts read. `processed/` is the layout the `analysis/` scripts expect; its fil
 
 | Library | Raw reads | Processed tables |
 |---|---|---|
-| scifi-ATAC maize B73 and Arabidopsis (one plate, separate wells) | GEO, accession to be added | produced by `workflows/03` to `05`; the GEO record also carries the Socrates objects and Tn5 insertion BEDs |
+| scifi-ATAC maize B73 and Arabidopsis (one plate, separate wells) | GEO GSE348516 | produced by `workflows/03` to `05`; the GEO record also carries the Socrates objects and Tn5 insertion BEDs |
 | scifi-ATAC B73 and Mo17, replicates 1 and 2 (Zhang et al. 2024) | SRA SRR25320545 to SRR25320547, SRR25320539 to SRR25320541 | produced by `workflows/01` to `04` and `03b` |
 | scifi-ATAC seven-genotype pool (Zhang et al. 2024) | SRA SRR25320542 to SRR25320544 | same |
 | 10x scATAC-seq maize B73 root (Marand et al. 2021) | SRA SRR12331466, one run | produced by `workflows/02` to `03` |
