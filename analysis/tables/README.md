@@ -76,9 +76,3 @@ Outputs: `figures/tables/TableS1_library_and_plate_design.{txt,xlsx}`,
 - **Cleaning mode is read from the run tree, not assumed from a directory name.** Table S1 reads
   `design_file` out of each `*_decontam_params.json`, and Table S2 checks which decontamination
   directories exist. Only the interspecies library was run both WD and ND.
-
-## Open
-
-Table S2 carries one accession placeholder, printed at the end of every run: the maize and
-Arabidopsis library, pending the NCBI BioProject, SRA and GEO submission. Fill it in the `PROSE`
-dict of `make_TableS2_dataset_inventory.py` and re-run.

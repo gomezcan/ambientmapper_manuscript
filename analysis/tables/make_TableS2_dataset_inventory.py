@@ -65,7 +65,8 @@ DATASET_DIR = {
     "multiGenotypes_rep1": os.path.join(DATA, "zhang2024", "multiGenotypes_rep1"),
 }
 
-PENDING_SM2 = "[PENDING: NCBI BioProject, SRA and GEO accessions]"
+# GEO series of the maize and Arabidopsis library generated in this study.
+SM2_ACCESSION = "GSE348516"
 
 # Verified against NCBI E-utilities, not transcribed from a reference manager.
 #   38589969  Zhang X et al. 2024, Genome Biol 25(1):90, scifi-ATAC-seq
@@ -135,7 +136,7 @@ PROSE = {
             "benchmark decontamination, and to measure the biological effect of cleaning"
         ),
         "source": "This study",
-        "accession": PENDING_SM2,
+        "accession": SM2_ACCESSION,
         "figures": "1, 2, 3, 5, S1, S2, S3, S4, S7, S8",
     },
     "Root1": {
