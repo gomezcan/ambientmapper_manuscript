@@ -2,7 +2,9 @@
 
 Nothing large is tracked here. `metadata/` holds the small tables the pipeline and the table
 scripts read. `processed/` is the layout the `analysis/` scripts expect; its files are outputs of
-`workflows/` and are not in git. Each dataset folder has a README listing the exact files.
+`workflows/` and are not in git. They are deposited at Zenodo (https://doi.org/10.5281/zenodo.22692879,
+one `tar.gz` per data group with public dataset names, see the record's `README.md` and `manifest.tsv`).
+Each dataset folder here has a README listing the exact files.
 
 ## Sources
 

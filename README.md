@@ -12,7 +12,7 @@ This repository holds the code behind every figure, supplementary figure and sup
 | scifi-demux (scifi-ATAC preprocessing tool) | https://github.com/gomezcan/scifi-demux |
 | Preprint (bioRxiv) | https://doi.org/10.64898/2026.09.11.750809 |
 | GEO accession, maize and Arabidopsis scifi-ATAC library | [GSE348516](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348516) |
-| Zenodo record of the processed data | to be added |
+| Zenodo record of the processed data (version 1.0.0) | [10.5281/zenodo.22692879](https://doi.org/10.5281/zenodo.22692879) |
 
 ## What is here
 
@@ -37,9 +37,11 @@ inputs they read and the order to run them in.
 
 1. Create the environment: `conda env create -f environment.yml && conda activate ambientmapper-manuscript`.
    The meta-cell step uses a separate SEACells environment, see `workflows/05_qc_and_embedding/README.md`.
-2. Place the processed inputs under `data/processed/` following the layout in `data/README.md`.
-   These tables are the outputs of `workflows/`; the maize and Arabidopsis library is deposited in
-   GEO (accession above) and the public libraries are in SRA (table below).
+2. Download the processed inputs from the Zenodo record (https://doi.org/10.5281/zenodo.22692879, one
+   `tar.gz` per data group, `README.md` and `manifest.tsv` inside the record describe every file) and place
+   them under `data/processed/` following the layout in `data/README.md`. These tables are the outputs of
+   `workflows/`; the maize and Arabidopsis library is deposited in GEO (accession above) and the public
+   libraries are in SRA (table below).
 3. Run the figure script from the repository root, for example
    `Rscript analysis/fig2_ambientmapper_framework/fig2.R`. Scripts that need a cache produced by a
    sibling script say so in their directory README.
@@ -92,8 +94,9 @@ raw FASTQ
 ## Data availability
 
 Raw reads of the maize and Arabidopsis library: GEO GSE348516. Public libraries: SRA
-accessions in the table above. Processed tables read by `analysis/`: see `data/README.md` for the
-expected files and their origin.
+accessions in the table above. Processed tables and objects read by `analysis/` (AmbientMapper outputs
+of every library, the synthetic benchmark, the 26-genome stress test, the Socrates embeddings): Zenodo,
+https://doi.org/10.5281/zenodo.22692879. See `data/README.md` for the expected files and their origin.
 
 ## Citation
 
